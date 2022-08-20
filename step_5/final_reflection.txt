@@ -1,0 +1,24 @@
+By creating this project I learned about the capabilities offered by AI services, more specifically computer vision. The project was really challenging as it presents a complete validation flow that takes data from different sources to validate a passenger's flight information and identity.
+
+During the development of this project I faced several challenges. First, I wanted to create a web solution that could simulate a real kiosk that could be placed in an airport, for this I used Flask for the first time, to create an API application. Although it took me some time to learn about Flask, I got used to it, finding it similar to other libraries like Express.js or Sinatra. I also created a Vue SPA that consumes this Flask application for a better approximation of a real solution.
+
+Another challenge was to integrate all the functionality into a single solution and try to define the data flow during the validation process as the functionality was spread over multiple independent scripts.
+
+During the process of tagging the boarding pass documents I realized that the Date field could not be extracted from the documents due to the format of the boarding pass template. Fortunately, I had added an additional date field that I could use when performing the data extraction.
+
+While working on the lighter detection process I realized that, when testing with carry-on luggage images, the lighter detection was not as good as I expected, but I think that is due to the overlapping of the objects in the images and the amount of images used during training was fairly small, anyway, the result was quite acceptable and performed quite well
+
+Another thing I wanted to do was to directly manipulate the CSV file of the flight manifest stored in Azure Blob Storage, for which I used the Azure Blob Storage python package. It wasn't that easy because I had never worked with CSV files in python before and the API for this is quite large, with several different methods that can become overwhelming. I ended up using a method that is not that performant, but I think for small CSV files like this one it is quite acceptable. If the flight manifest data were larger, the solution might show performance issues, but, at this point, I think a better storage option would be more appropriate, such as using a database.
+
+It was a really exciting and fun project, which required a lot of work and from which I learned a lot, not only about the use of Cognitive Services, but also about the related tools, such as the Form OCR testing tool used during the tagging of the boarding pass documents and the Custom Vision website to upload, tag and test the custom lighter detection model, as well as the use of the Azure Portal to create resources, manage them, monitor them and integrate them into a project.
+
+It is really impressive how easy it is to extract data from different documents and how much data can be extracted from a single video. That's why I think it's important to take user privacy as a serious issue when developing a solution that uses Computer Vision, and any AI service in general, with sensitive user data.
+
+It has been an amazing and very enriching experience and I am happy with the results.
+
+- My TODO list for this project
+* Move to a better and more performant way of storing data, like a database
+* CRUD operations for the data, like being able to register your flight information that would be used later during validation, instead of being static
+* Make possible for users to generate their boarding pass document from the website byt submitting their data and be able to download the generated document
+* Create more iterations for the custom lighter detection model adding more lighter images
+* Make possible for users to record a short video directly from the kiosk website instead of uploading the video file
